@@ -1,0 +1,20 @@
+服务器重装arcgis server 的步骤
+
+1、备份arcgis 安装目录，cp -r /opt/arcgis  /gisdata/bak/serverbak20151010
+
+2、卸载arcgis server：
+root@ 
+cd /opt/arcgis/server10.0/script/uninstallarcgisserver -s 
+
+3、删除arcgis server安装目录；
+rm -rf /opt/arcgis/*
+
+4、上传压缩包到服务器
+
+5、服务器解压缩，tar -zxvf arcgisserver.tar
+
+6、对安装文件夹授权，chown oracle:oinstall /tmp/arcgisserver -R
+chown oracle:oinstall /opt/arcgis -R
+7、切换用户 su oracle, chmod 777 /tmp/arcgisserver, chmod 777 /opt/arcgis
+8、root启动安装程序：./Setup load
+9、目录默认、域选择gislan.esri.com、用户输入oracle 
